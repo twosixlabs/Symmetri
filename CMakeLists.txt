@@ -15,6 +15,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wall -Wextra -pedantic")
 
+# Option to choose between building shared or static libraries
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)  # Default to OFF for static
+
 if(BUILD_TESTING)
   enable_testing()
   if(ASAN_BUILD AND NOT TSAN_BUILD)
@@ -38,3 +41,4 @@ if(BUILD_EXAMPLES)
   add_subdirectory(examples/combinations)
   add_subdirectory(examples/performance)
 endif()
+
